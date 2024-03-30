@@ -52,15 +52,66 @@ long long binexp2(long long a, long long b, long long m){
 	}
 	return result;
 }
+int phii(int n) {
+    int result = n;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            while (n % i == 0)
+                n /= i;
+            result -= result / i;
+        }
+    }
+    if (n > 1)
+        result -= result / n;
+    return result;
+}
+void phi_1_to_n(int n) {
+    vector<int> phii(n + 1);
+    for (int i = 0; i <= n; i++)
+        phii[i] = i;
 
+    for (int i = 2; i <= n; i++) {
+        if (phii[i] == i) {
+            for (int j = i; j <= n; j += i)
+                phii[j] -= phii[j] / i;
+        }
+    }
 
+    for(int i=1;i<=n;i++) cout<<phii[i]<<" ";
+
+}
 int32_t main()
 { fast
 
 
+ cout<<phii(5)<<'\n'; //output euler er totient function of 5;
+ phi_1_to_n(10);      //output 1 theke n porjonto euler er totient function
+ cout<<nl;
 
- cout<<binexp2(837337287382373782,5,38934747834848734444444444444)<<'\n';
- cout<<binexp1(1000000324,1000007,100000000);
+    /******Binary Expotention*****/
+    ///1.Normal expotention Base<=10^9,Power<=10^9 & Mod<=10^9
+
+     cout<<binexp1(1000000000,1000000000,100000008)<<'\n';
+    ///2.variation a^b^c er expotention ber kora a,b,c,mod<=10^9;
+
+    //10000^10000^10000;
+    //phi(mod)
+    //
+    int m=1000000007;
+    int x=phii(m);
+    cout<<binexp1(10000,binexp1(10000,10000,phii(m)),m); ///ekhane chaile majhkhane phii(m) na bosai x bosaleo hoto;
+
+    ///3.variation a^b mod m,j khane base,mod<=10^18;
+
+    cout<<binexp2(1003474682019274,457846743,19283747596095843)<<'\n';  ///ai varition a binexp2 te call hocche kintu;
+
+    ///fartmet er little theorem moduler inverse ber kore
+    ///(a^(phi(m)-1))%m=a^-1;
+
+    cout<<binexp1(5,phii(6)-1,6);
+
+
+
 
 
 
