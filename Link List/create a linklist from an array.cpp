@@ -29,7 +29,6 @@ int main() {
     last=temp;
 }
 
-    cout<<"Aasif";
     
     Node* p= head;
     while(p!= nullptr)
