@@ -2,26 +2,26 @@
 using namespace std;
 
 class Node {
-private: // 🚫 বাইরে থেকে direct access করা যাবে না
+private:
     int data;
     Node* next;
 
-public: // ✅ বাইরে থেকে এই functions গুলো call করা যাবে
+public: // 
     
-    // Constructor - node তৈরি করার function
+    // Constructor - 
     Node(int value) {
         data = value;
         next = nullptr;
     }
     
-    // ✅安全的ভাবে data set করা
+    // 
     void setData(int value) {
         if (value >= 0) { // validation
             data = value;
         }
     }
     
-    // ✅安全的ভাবে data পড়া
+    
     int getData() {
         return data;
     }
