@@ -2,9 +2,7 @@
 
 using namespace std;
 
-// --- Simplified Node Class ---
-// All members are public by default in a struct, 
-// but we're using a class here for structure, making members explicitly public.
+
 class node{
     private:
     int data;
@@ -26,7 +24,6 @@ class node{
     
 };
 
-// --- Main Function (List Creation) ---
 int main() {
     // 1. Create the Head Node
     // 'head' is a pointer to the start of the list.
@@ -42,8 +39,6 @@ int main() {
     node* fourth= new node(40);
     
 
-    // 3. Link the Nodes Together
-    // Since 'next' is public, we access it directly using '->'
     head->setnext(second);     // 10 points to 20
     second->setnext(third);    // 20 points to 30
     third->setnext(fourth);    // 30 points to 40
