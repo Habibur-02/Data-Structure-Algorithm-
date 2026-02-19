@@ -2,7 +2,7 @@
 // Problem link: https://cses.fi/problemset/task/1628/
 
 /*
-As x <= 10^9, DP is not possible
+As x <= 10^9, DP is not possible.so
 
 As n <= 40, some brute force is possible
 However, generating all subsets results in O(2^n) time complexity => TLE
